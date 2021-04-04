@@ -87,7 +87,7 @@ public class StorageService {
     	InputStream firebaseCredential = createFirebaseCredential();
     	
         String destFileName = UUID.randomUUID().toString().concat(this.getExtension(fileName));// to set random strinh for destination file name
-        String destFilePath = "/home/thiago/Downloads/" + destFileName; // to set destination file path
+        String destFilePath = "~/Downloads/" + destFileName; // to set destination file path
         
         Credentials credentials = GoogleCredentials.fromStream(firebaseCredential);
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
@@ -97,8 +97,10 @@ public class StorageService {
     }
     
     // Delete File
-    public String delete(String fileName) throws IOException {
-    	Credentials credentials = GoogleCredentials.fromStream(new FileInputStream("./serviceAccountKey.json"));
+    public String delete(String fileName) throws Exception {
+    	InputStream firebaseCredential = createFirebaseCredential();
+    	
+    	Credentials credentials = GoogleCredentials.fromStream(firebaseCredential);
     	Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
     	try {
     		boolean blob = storage.delete(BlobId.of(bucketName, fileName));

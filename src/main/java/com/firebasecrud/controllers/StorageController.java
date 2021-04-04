@@ -36,7 +36,7 @@ public class StorageController {
     }
     
     @PostMapping("/profile/pic/delete/{fileName}")
-    public Object delete(@PathVariable String fileName) throws IOException {
+    public Object delete(@PathVariable String fileName) throws Exception {
 //        logger.info("HIT -/delete | File Name : {}", fileName);
         return service.delete(fileName);
     }
