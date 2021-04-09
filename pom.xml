@@ -87,7 +87,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>lemesvilarinho/mmv2-${project.artifactId}:${project.version}</name>
+						<name>lemesvilarinho/api-products:1.0</name>
 					</image>
 					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 				</configuration>
